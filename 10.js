@@ -32,11 +32,12 @@ const calcAverageHumanAge = function (arr) {
 
     console.log(adultsDog);
 
-    const avAge = adultsDog.reduce(function (acc, cur) {
-        acc = 0;
-        return (acc + cur) / adultsDog.length;
-    });
+    const avAge = adultsDog.reduce(
+        (acc, cur, i, arr) => acc + cur / arr.length,
+        0
+    );
     console.log(avAge);
+    return avAge;
 };
 
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
