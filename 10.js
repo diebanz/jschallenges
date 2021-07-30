@@ -19,25 +19,38 @@
 // § Data 2: [16, 6, 10, 5, 6, 1, 4]
 // GOOD LUCK 😀
 
+// const calcAverageHumanAge = function (arr) {
+//     const humanAge = arr.map((dogAge) =>
+//         dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
+//     );
+
+//     console.log(humanAge);
+
+//     const adultsDog = humanAge.filter(function (age) {
+//         return age >= 18;
+//     });
+
+//     console.log(adultsDog);
+
+//     const avAge = adultsDog.reduce(
+//         (acc, cur, i, arr) => acc + cur / arr.length,
+//         0
+//     );
+//     console.log(avAge);
+//     return avAge;
+// };
+
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+// Chain methods
+
 const calcAverageHumanAge = function (arr) {
-    const humanAge = arr.map((dogAge) =>
-        dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
-    );
-
-    console.log(humanAge);
-
-    const adultsDog = humanAge.filter(function (age) {
-        return age >= 18;
-    });
-
-    console.log(adultsDog);
-
-    const avAge = adultsDog.reduce(
-        (acc, cur, i, arr) => acc + cur / arr.length,
-        0
-    );
-    console.log(avAge);
-    return avAge;
+    const humanAge = arr
+        .map((dogAge) => (dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4))
+        .filter((age) => age >= 18)
+        .reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+    return humanAge;
 };
 
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
